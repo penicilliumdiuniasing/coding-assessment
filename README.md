@@ -58,5 +58,5 @@
 
 ## Finally
 
-- Push all the codes into the your remote repository
+- Push all the codes into your remote repository
 - Make sure the repository is public
