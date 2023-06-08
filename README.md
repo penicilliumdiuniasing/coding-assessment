@@ -48,7 +48,7 @@
   - Server side data caching with redis
   - Send an email everytime an event is created (you can use mailtrap or other smtp provider that's easy to setup)
   - Authentication -> only authenticated users can create, update and delete events
-  - Calling of an external API(s) and display the data in the UI
+  - Calling of an external API(s) and display the data in the UI (can be any public external API(s))
 
 ## Bonus points
 
