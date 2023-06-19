@@ -20,7 +20,7 @@
   - **updatedAt** -> NOT NULL, DateTime
 - Create these APIs
   - GET /api/v1/events -> Return all events from the database
-  - GET /api/v1/events/active-events -> Return all events that are active = current datetime is within startAt and endAt
+  - GET /api/v1/events/active-events -> Return all events that are Sactive = current datetime is within startAt and endAt
   - GET /api/v1/events/{id} -> Get one event
   - POST /api/v1/events -> Create an event
   - PUT /api/v1/events/{id} -> Create event if not exist, else update the event in idempotent way
