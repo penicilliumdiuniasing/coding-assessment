@@ -21,7 +21,6 @@ class EventController extends Controller
     }
     /*
      - GET /api/v1/events/active-events -> Return all events that are active = current datetime is within startAt and endAt
-     wait more clearly instruction to do.
      */
     public function findAllActive_Event (){
         //$AllActive_Event=Event::where(['startAt','<',now()],['endAt','>',now()])->get();
