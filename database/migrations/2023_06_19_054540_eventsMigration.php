@@ -24,9 +24,9 @@ class EventsMigration extends Migration
             */
         
         Schema::create('events', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->unique();
             $table->string('name', 50)->nullable();
-            $table->string('slug', 1)->unique()->nullable();
+            $table->string('slug', 50)->unique()->nullable();
 
             $table->timestamps();
 
