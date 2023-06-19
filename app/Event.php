@@ -1,7 +1,9 @@
 <?php
 
 namespace App;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
@@ -15,10 +17,17 @@ class Event extends Model
   - **updatedAt** -> NOT NULL, DateTime
 
     */
+   // use HasFactory,HasUuids;
+
+   /**
+    * - DELETE /api/v1/events/{id} -> Soft delete an event
+    */
+   use SoftDeletes;
+
+   const DELETED_AT = 'deletedAt';
     protected $fillable = [
      'name', 'slug'
     ];
- 
-
+    
 
 }
