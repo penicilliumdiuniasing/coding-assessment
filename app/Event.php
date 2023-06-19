@@ -19,9 +19,7 @@ class Event extends Model
     */
    // use HasFactory,HasUuids;
 
-   /**
-    * - DELETE /api/v1/events/{id} -> Soft delete an event
-    */
+   
    use SoftDeletes;
 
    const DELETED_AT = 'deletedAt';
