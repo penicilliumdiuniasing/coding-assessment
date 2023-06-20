@@ -21,10 +21,11 @@ class EventController extends Controller
         $searchData=$request->input('id','nothing');
         $choice=$request->input('Choice');
         $idChosen=$request->input('idChosen');
+
         if($choice=='search'){
-            if($searchData!='nothing'){redirect('/event/'.$searchData)->withInput([$searchData]);};
+            if($searchData!='nothing'){return redirect('/event/'.$searchData)->withInput([$searchData]);};
         };
-        //if($editResult=='update'){return redirect('/event/edit')->withInput([$idChosen]);};
+        if($editResult=='update'){return redirect('/event/'.$idChosen.'/edit')->withInput([$idChosen]);};
         return view('showAllEvent',['data'=>$AllEvent,'test'=>$editResult,'idChosen'=>$idChosen]);
     }
     /*
@@ -95,14 +96,29 @@ class EventController extends Controller
     /**
      * - PATCH /api/v1/events/{id} -> Partially update event
      */
-    public function partialyUpdateEvent ($id,$name='noChange',$slug='noChange' ,$startAt='noChange',$endAt='noChange' ){
+    public function partialyUpdateEvent ($id,Request $request){
+        $choice=$request->input('choice','noChange');
+        $eventDataNeedToChanged=Event::where('id',$id)->get();
 
-        $changeDataArray=array();
-        if($name!='noChange'){$changeDataArray['name']=$name;};
-        if($slug!='noChange'){$changeDataArray['slug']=$slug;};
-        if($startAt!='noChange'){$changeDataArray['startAt']=$startAt;};
-        if($endAt!='noChange'){$changeDataArray['endAt']=$endAt;};
-        Event::where('id',$id)->update($changeDataArray);
+        if($choice=='update'){
+ 
+            $name=$request->input('name','noChange');
+            $slug=$request->input('slug','noChange');
+            $startAt=$request->input('startAt','noChange');
+            $endAt=$request->input('endAt','noChange');
+
+            $changeDataArray=array();
+            if($name!='noChange'){$changeDataArray['name']=$name;};
+            if($slug!='noChange'){$changeDataArray['slug']=$slug;};
+            if($startAt!='noChange'){$changeDataArray['startAt']=$startAt;};
+            if($endAt!='noChange'){$changeDataArray['endAt']=$endAt;};
+
+            Event::where('id',$id)->update($changeDataArray);
+            return redirect('/event');
+
+        }
+        return view('editEvent',['dataEach'=>$eventDataNeedToChanged]);
+
     }
     
     /**

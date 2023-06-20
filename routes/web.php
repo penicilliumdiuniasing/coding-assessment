@@ -27,19 +27,9 @@ Route::get('/', function () {
 
 //Test
 Route::get('/event', 'EventController@findAllEvent');
-//Route::get('/event/{id}', 'EventController@find1_EventAccordingId');//->whereUuid('id');
+Route::get('/event/{id}', 'EventController@find1_EventAccordingId');//->whereUuid('id');
 Route::get('/event/create', 'EventController@createNewEvent');
-Route::get('/event/edit', function () {return view('editEvent');});
+Route::get('/event/{id}/edit','EventController@partialyUpdateEvent');
 
-Route::get('/e/{name} {slug}','EventController@createNewEvent');
-Route::get('/uOre/{name} {slug}','EventController@updateOrCreateEvent');
-
-
-//Simple Use Factory to create data.
-Route::get('/test',function () {return $event = factory(App\Event::class, 5)->create();});
-Route::get('/test1',function () { //$a+=date("Y-m-d H:i:s");
-  return factory(App\Event::class, 5)->make();});
-
-//Route::get('/testShow',function () { $data=App\Event::get();return view('showAllEvent',['data'=>$data]);});
 
 

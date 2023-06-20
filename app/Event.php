@@ -20,9 +20,9 @@ class Event extends Model
    // use HasFactory,HasUuids;
 
    
-   use SoftDeletes;
+   //use SoftDeletes;
 
-   const DELETED_AT = 'deletedAt';
+   //const DELETED_AT = 'deletedAt';
     protected $fillable = [
      'name', 'slug'
     ];

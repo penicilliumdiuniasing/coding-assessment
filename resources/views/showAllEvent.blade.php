@@ -17,13 +17,13 @@
                 </tr>
                 @foreach($data as $dataEach)
                 <tr>
-                        <td><?php echo strval($dataEach['id']); ?></td>
+                        <td>{{$dataEach['id']}}</td>
                         <td>{{$dataEach['name']}}</td>
                         <td>{{$dataEach['slug']}}</td>
                         <td>
                                 <button name="edit" value="update" > update</button>
                                 <button name="edit" value="delete" > delete</button>
-                                <input id="Id" type="hidden" name="idChosen" value="{{$dataEach['id']}}"></input>
+                                <input type="hidden" name="idChosen" value="{{$dataEach['id']}}"></input>
                         </td>
                 </tr>
                 @endforeach
