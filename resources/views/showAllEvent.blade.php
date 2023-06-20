@@ -29,8 +29,7 @@
                 @endforeach
 
         </table>
-        <p>{{$test}}</p>
-        <p>{{$idChosen}}</p>
+
 </form>
 </body>
 
