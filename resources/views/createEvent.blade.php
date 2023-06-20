@@ -25,7 +25,7 @@
 <label for="EndAt">EndAt:</label>
 <input id='EndAt' type="text" name="endAt" ></input>
 
-<button type="submit" name="edit" value="create"> Submit</button>
+<button type="submit" name="choice" value="create"> Submit</button>
 </form>
 
 

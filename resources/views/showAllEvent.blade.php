@@ -5,7 +5,9 @@
 <body>
 <form method="get" action="">
 <label for="Id">Id:</label>
-<input id="Id" type="text" name="id" value="" ></input>
+<input id="Id" type="text" name="id" ></input>
+<button name="Choice" value="search" > Search</button>
+
         <table border="5">
                 <tr>
                         <td>Id</td>
@@ -19,14 +21,16 @@
                         <td>{{$dataEach['name']}}</td>
                         <td>{{$dataEach['slug']}}</td>
                         <td>
-                                <button name="edit" value="[update,{{$dataEach['id']}}]" > update</button>
+                                <button name="edit" value="update" > update</button>
                                 <button name="edit" value="delete" > delete</button>
+                                <input id="Id" type="hidden" name="idChosen" value="{{$dataEach['id']}}"></input>
                         </td>
                 </tr>
                 @endforeach
 
         </table>
         <p>{{$test}}</p>
+        <p>{{$idChosen}}</p>
 </form>
 </body>
 

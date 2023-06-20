@@ -28,6 +28,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 - PATCH /api/v1/events/{id} -> Partially update event
 - DELETE /api/v1/events/{id} -> Soft delete an event
  */
+
 Route::prefix('/api/v1')->group(function(){
     Route::get('/events','EventController@findAllEvent');
     Route::get('/events/active-events','EventController@findAllActive_Event');
