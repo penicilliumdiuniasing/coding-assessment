@@ -27,7 +27,8 @@ class EventsMigration extends Migration
             $table->uuid('id')->unique();
             $table->string('name', 50)->nullable();
             $table->string('slug', 50)->unique()->nullable();
-
+            $table->dateTime('startAt');
+            $table->dateTime('endAt');
             $table->timestamps();
 
             $table->primary('id');

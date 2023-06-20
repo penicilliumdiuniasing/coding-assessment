@@ -23,8 +23,8 @@ class EventController extends Controller
      - GET /api/v1/events/active-events -> Return all events that are active = current datetime is within startAt and endAt
      */
     public function findAllActive_Event (){
-        //$AllActive_Event=Event::where(['startAt','<',now()],['endAt','>',now()])->get();
-        //return $AllActive_Event;
+        $AllActive_Event=Event::where(['startAt','<',date("Y-m-d H:i:s")],['endAt','>',date("Y-m-d H:i:s")])->get();
+        return $AllActive_Event;
     }
     /*
      - GET /api/v1/events/{id} -> Get one event

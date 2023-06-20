@@ -13,10 +13,15 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Event::class, function (Faker\Generator $faker) {
-
+    //startAt at most same as created at.
+    //endAt = startAt+random days.
+    $activeDuration=$faker->randomDigit();
+    $startAttime=date("Y-m-d H:i:s");
     return [
         'id'=> $faker->unique()->uuid,
         'name' => $faker->name,
         'slug' => $faker->unique()->slug(5),
+        'startAt'=> $startAttime,
+        'endAt' => date('Y-m-d H:i:s', strtotime ("$startAttime +$activeDuration day" )),
     ];
 });
